@@ -1,26 +1,22 @@
-import path from "path";
-import webpack from "webpack";
-import * as dotenv from "dotenv";
-import MiniCssExtractPlugin from "mini-css-extract-plugin";
-import { CleanWebpackPlugin } from "clean-webpack-plugin";
-import nodeExternals from "webpack-node-externals";
-import CssMinimizerPlugin from "css-minimizer-webpack-plugin";
-import TerserPlugin from "terser-webpack-plugin";
-import ESLintPlugin from "eslint-webpack-plugin";
-import { resolveTsAliases } from "resolve-ts-aliases";
+const path = require("path");
+const webpack = require("webpack");
+const dotenv = require("dotenv");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
 
 const dotEnvToParse = dotenv.config();
 const libraryName = process.env.LIBRARY_NAME ? process.env.LIBRARY_NAME : "ui-library";
 const externalCss = process.env.EXTERNAL_CSS === "true" ? true : false;
 const externalCssName = process.env.EXTERNAL_CSS_NAME ? process.env.EXTERNAL_CSS_NAME : "index.css";
-const alias = resolveTsAliases(path.resolve("tsconfig.json"));
 
-export default {
-  entry: "./src/components/index.tsx",
-  externals: [nodeExternals()],
+module.exports = {
+  entry: "./src/components/index.js",
+  externals: [],
   resolve: {
     extensions: [".js", ".jsx", ".ts", ".tsx", ".json"],
-    alias,
   },
   mode: "production",
   output: {
@@ -42,7 +38,6 @@ export default {
     new webpack.DefinePlugin({
       "process.env": JSON.stringify(dotEnvToParse.parsed),
     }),
-    new ESLintPlugin(),
   ],
   module: {
     rules: [
