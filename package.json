@@ -1,6 +1,6 @@
 {
   "name": "mel3kings-saas-utils",
-  "version": "1.0.3",
+  "version": "1.0.",
   "description": "A starter kit for create a React component Library with storybook",
   "main": "dist/index.js",
   "scripts": {

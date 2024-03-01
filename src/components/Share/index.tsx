@@ -1,9 +1,12 @@
+import React, { FC } from "react";
 import Facebook from "./facebook";
 import Twitter from "./twiter";
 import Whatsapp from "./whatsapp";
 import "./style.scss";
 
-function Share() {
+type TShareProps = {};
+
+const Share: FC<TShareProps> = () => {
   const currentUrl = encodeURIComponent(window.location.href);
   const shareText = encodeURIComponent("Check out:");
 
@@ -24,6 +27,6 @@ function Share() {
       </a>
     </div>
   );
-}
+};
 
-export { Share };
+export { Share, TShareProps };
