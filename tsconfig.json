@@ -1,0 +1,48 @@
+{
+    "compilerOptions": {
+      "target": "es5",
+      "lib": [
+        "dom",
+        "dom.iterable",
+        "esnext"
+      ],
+      "allowJs": true,
+      "allowSyntheticDefaultImports": true,
+      "strict": true,
+      "forceConsistentCasingInFileNames": true,
+      "noFallthroughCasesInSwitch": true,
+      "module": "esnext",
+      "moduleResolution": "node",
+      "resolveJsonModule": true,
+      "noEmit": false,
+      "jsx": "react-jsx",
+      "experimentalDecorators": true,
+      "esModuleInterop": true,
+      "isolatedModules": false,
+      "typeRoots" : ["./src/@types", "./node_modules/@types"],
+      "types": [
+        "react", 
+        "react-dom", 
+        "node",
+        "cypress"
+      ],
+      "sourceMap": true,
+      "baseUrl": ".",
+      "outDir": "dist",
+      "skipLibCheck": true,
+      "noImplicitAny": false,
+      "paths": {
+        "@components/*": ["src/components/*"],
+        "@components": ["src/components"]
+      }
+    },
+    "include": [
+      "."
+    ],
+    "exclude": [
+     "node_modules",
+     "dist",
+     "PRNameGenerator.ts",
+     "cypress.config.ts"
+    ]
+}
